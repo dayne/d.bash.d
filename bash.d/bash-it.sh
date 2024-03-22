@@ -1,7 +1,7 @@
 
 function install_bashit() {
   if [ ! -d $HOME/.bash_it ]; then
-    git clone -depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+    git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
     if [ $? -eq 0 ]; then
       ~/.bash_it/install.sh 
     else
