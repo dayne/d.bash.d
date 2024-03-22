@@ -91,8 +91,15 @@ function ct-check_for-ruby-install() {
   fi
 }
 
-ct-check_for-ruby-install
-#unset ct-check_for-ruby-install
+if ct-check_for-ruby-install; then
+  unset -f ct-check_for-ruby-install
+fi
 
-ct-check_for-chruby
-#unset ct-check_for-chruby
+if ct-check_for-chruby; then
+  unset -f ct-check_for-chruby
+fi
+
+if [ -f ~/.ruby-version ]; then
+  RUBY_VERSION=$(cat $HOME/.ruby-version)
+  echo "Detected ~/.ruby-version of $RUBY_VERSION"
+fi
