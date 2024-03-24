@@ -1,9 +1,11 @@
 # https://golang.org/doc/code.html#GOPATH
 
-which go > /dev/null 2>&1
-if [ $? -eq 0 ]; then
+if command -v go > /dev/null; then
   # we have go
   export PATH=$PATH:$(go env GOPATH)/bin
+  for I in $HOME/.bash.d/go-tools/*.sh; do
+    source $I
+  done
 elif [ -d $HOME/go ]; then
   # we have home go
   export PATH=$PATH:$HOME/go/bin
